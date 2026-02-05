@@ -12,6 +12,8 @@ public class Main {
 
         String[] words = text.split("\\.");
 
+        String textcrap = "";
+
         for (int i = 0; i < words.length; i++){
             String words1 = words[i];
             if (words1.charAt(words1.length() - 1) != 63 && words1.charAt(words1.length() - 1) != 33){
@@ -19,20 +21,46 @@ public class Main {
                 String words3 = words2[0];
                 words2[0] = words2[words2.length - 1];
                 words2[words2.length - 1] = words3 + ".";
+                textcrap += String.join(" ", words2);
+//                words[i] = String.join(" ", words2);
+
+            }
+
+        }
+
+        for (int i = 0; i < words.length; i++){
+
+            System.out.print(words[i] + "55");
+        }
+
+//        String[] text1 = words.split("\\?");
+        for (int i = 0; i < words.length; i++){
+            String words1 = words[i];
+            if (words1.charAt(words1.length() - 1) != 46 && words1.charAt(words1.length() - 1) != 33){
+                String[] words2 = words1.split(" ");
+                String words3 = words2[0];
+                words2[0] = words2[words2.length - 1];
+                words2[words2.length - 1] = words3 + "?";
                 words[i] = String.join(" ", words2);
 
             }
 
         }
 
-        words = text.split("\\?");
+        for (int i = 0; i < words.length; i++){
+
+            System.out.print(words[i]);
+        }
+
+//        text1 = String.join(" ", words);
+//        words = text1.split("!");
         for (int i = 0; i < words.length; i++){
             String words1 = words[i];
-            if (words1.charAt(words1.length() - 1) != 63 && words1.charAt(words1.length() - 1) != 33){
+            if (words1.charAt(words1.length() - 1) != 46 && words1.charAt(words1.length() - 1) != 63){
                 String[] words2 = words1.split(" ");
                 String words3 = words2[0];
                 words2[0] = words2[words2.length - 1];
-                words2[words2.length - 1] = words3 + ".";
+                words2[words2.length - 1] = words3 + "!";
                 words[i] = String.join(" ", words2);
 
             }
