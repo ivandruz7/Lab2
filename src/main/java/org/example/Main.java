@@ -4,98 +4,68 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Номер моєї залікової книжки 5206, С3 = 1 (тип змінних String)
-        //С7 = 4 (В кожному речені заданого тексту змфнити місцями перше та
-        // останнє слово, не змінивши довжину речкння.)
+        Main main = new Main();
 
         String text = "Привіт світ. Як справи? Все супер!";
 
-        String[] words = text.split("\\.");
-
-        String textcrap = "";
-
-        for (int i = 0; i < words.length; i++){
-            String words1 = words[i];
-            if (words1.charAt(words1.length() - 1) != 63 && words1.charAt(words1.length() - 1) != 33){
-                String[] words2 = words1.split(" ");
-                String words3 = words2[0];
-                words2[0] = words2[words2.length - 1];
-                words2[words2.length - 1] = words3 + ".";
-                textcrap += String.join(" ", words2);
-//                words[i] = String.join(" ", words2);
-
-            }
-
-        }
-
-        for (int i = 0; i < words.length; i++){
-
-            System.out.print(words[i] + "55");
-        }
-
-//        String[] text1 = words.split("\\?");
-        for (int i = 0; i < words.length; i++){
-            String words1 = words[i];
-            if (words1.charAt(words1.length() - 1) != 46 && words1.charAt(words1.length() - 1) != 33){
-                String[] words2 = words1.split(" ");
-                String words3 = words2[0];
-                words2[0] = words2[words2.length - 1];
-                words2[words2.length - 1] = words3 + "?";
-                words[i] = String.join(" ", words2);
-
-            }
-
-        }
-
-        for (int i = 0; i < words.length; i++){
-
-            System.out.print(words[i]);
-        }
-
-//        text1 = String.join(" ", words);
-//        words = text1.split("!");
-        for (int i = 0; i < words.length; i++){
-            String words1 = words[i];
-            if (words1.charAt(words1.length() - 1) != 46 && words1.charAt(words1.length() - 1) != 63){
-                String[] words2 = words1.split(" ");
-                String words3 = words2[0];
-                words2[0] = words2[words2.length - 1];
-                words2[words2.length - 1] = words3 + "!";
-                words[i] = String.join(" ", words2);
-
-            }
-
-        }
-//        String words1 = words[0];
-//        for (int i = 0; i < words.length; i++){
-//
-//
-//
-//            if (words1.charAt(words1.length() - 1) == 46){
-//
-//                String s = words[i];
-//                words
-//                words1 = words[i + 1];
-//
-//            }
-//
-//        }
-//
-        for (int i = 0; i < words.length; i++){
-
-            System.out.print(words[i]);
-        }
-
-
+        System.out.println("Початковий текст: ");
+        System.out.println(text);
+        System.out.println(" ");
+        System.out.println("Перетворений текс: ");
+        System.out.println(main.changeText(text));
 
     }
 
-//    public String[] chenger(String text){
-//
-//        String[] words1 = text.split(".");
-//        String[] words2 = words1.split("?");
-//        String[] words3 = words2.split("!");
-//
-//        return words;
-//    }
+    public String changeText(String text){
+
+        String[] words = text.split(" ");
+
+        String textc = "";
+        String newtext = "";
+        char lastchar = '!';
+        int k = 0;
+
+        for (int i = 0; i < words.length; i++){
+
+            textc += words[i] + " ";
+
+            if (textc.charAt(textc.length() - 2) == '.'){
+                textc = revers(textc);
+                lastchar = '.';
+                k = 1;
+            }
+            else if (textc.charAt(textc.length() - 2) == '?'){
+                textc = revers(textc);
+                lastchar = '?';
+                k = 1;
+            }
+
+            else if (textc.charAt(textc.length() - 2) == '!'){
+                textc = revers(textc);
+                lastchar = '!';
+                k = 1;
+            }
+
+
+            if (k == 1) {
+                newtext += textc + lastchar + " ";
+                k = 0;
+                textc = "";
+            }
+
+        }
+        return newtext;
+
+    }
+
+    public String revers(String textc){
+        String exstra2;
+        textc = textc.substring(0, textc.length() - 2);
+        String[] exstra = textc.split(" ");
+        exstra2 = exstra[exstra.length - 1];
+        exstra[exstra.length - 1] = exstra[0];
+        exstra[0] = exstra2;
+        textc = String.join(" ", exstra);
+        return textc;
+    }
 }
