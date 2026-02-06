@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MainTest {
 
     @Test
-    void changeText1() {
+    void changeTextTest1() {
 
         Main main = new Main();
 
@@ -21,7 +21,7 @@ class MainTest {
     }
 
     @Test
-    void changeText2() {
+    void changeTextTest2() {
 
         Main main = new Main();
 
@@ -34,7 +34,7 @@ class MainTest {
     }
 
     @Test
-    void changeText3() {
+    void changeTextTest3() {
 
         Main main = new Main();
 
