@@ -17,7 +17,32 @@ class MainTest {
 
         String result = main.changeText(text);
 
-        assertEquals(result, wa);
+        assertEquals(wa, result);
+    }
 
+    @Test
+    void changeText2() {
+
+        Main main = new Main();
+
+        String text = "Привіт світ.";
+        String wa = "світ Привіт.";
+
+        String result = main.changeText(text);
+
+        assertEquals(wa, result);
+    }
+
+    @Test
+    void changeText3() {
+
+        Main main = new Main();
+
+        String text = "Супер!";
+        String wa = "Супер!";
+
+        String result = main.changeText(text);
+
+        assertEquals(wa, result);
     }
 }
